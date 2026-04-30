@@ -1,0 +1,23 @@
+{
+  "name": "hanako-memory-plugin",
+  "version": "2.0.0",
+  "description": "基于 Obsidian 知识图谱的 Agent 自我改进记忆系统。三元组提取 + 学习/错误双层记录。纯 JS 实现，无外部 Python 依赖。",
+  "main": "lib/memory-service.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --experimental-vm-modules lib/obsidian-ops.test.js"
+  },
+  "keywords": [
+    "hanako",
+    "memory",
+    "knowledge-graph",
+    "obsidian",
+    "triple-extraction",
+    "self-improving-agent"
+  ],
+  "author": "奥菲莉娅",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "id": "hanako-memory-plugin",
+  "name": "Hanako Memory Plugin",
+  "version": "2.0.0",
+  "description": "基于 Obsidian 知识图谱的 Agent 自我改进记忆系统。三元组提取 + 学习/错误双层记录 + 上下文自动注入。设计参考 graph-memory、self-improving-agent、openclaw/skills。",
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "vaultPath": {
+          "type": "string",
+          "default": "W:/Games/Obsidian/Work/无极限",
+          "title": "Obsidian Vault 路径",
+          "description": "记忆系统将在此 vault 的「记忆/」目录下存储所有数据"
+        },
+        "autoExtract": {
+          "type": "boolean",
+          "default": true,
+          "title": "对话结束时自动提取记忆"
+        },
+        "autoContext": {
+          "type": "boolean",
+          "default": true,
+          "title": "会话开始时自动注入上下文"
+        },
+        "maxContextTokens": {
+          "type": "number",
+          "default": 2000,
+          "title": "最大上下文 Token 数"
+        }
+      }
+    }
+  }
+}
