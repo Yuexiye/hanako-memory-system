@@ -67,7 +67,7 @@
 {
   "plugins": {
     "hanako-memory-plugin": {
-      "vaultPath": "W:/Games/Obsidian/Work/无极限"
+      "vaultPath": "/path/to/your/obsidian/vault"
     }
   }
 }
@@ -81,7 +81,7 @@
 
 | 配置项 | 类型 | 默认值 | 说明 |
 |---|---|---|---|
-| `vaultPath` | string | `W:/Games/Obsidian/Work/无极限` | Obsidian vault 根路径 |
+| `vaultPath` | string | `/path/to/your/obsidian/vault` | Obsidian vault 根路径 |
 | `autoExtract` | boolean | `true` | 对话结束时自动提取记忆 |
 | `autoContext` | boolean | `true` | 会话开始时自动注入上下文 |
 | `maxContextTokens` | number | `2000` | 最大上下文 token 数 |
@@ -107,16 +107,16 @@
 ```json
 {
   "entities": [
-    {"name": "冰原晶狐", "type": "世界观生物", "properties": {...}, "tags": [...]}
+    {"name": "星灵", "type": "世界观生物", "properties": {"栖息地": "浮空群岛", "特性": "能感知能量波动"}, "tags": ["奇幻", "生物"]}
   ],
   "relations": [
-    {"from": "冰原晶狐", "to": "隙光纪行", "type": "belongs_to"}
+    {"from": "星灵", "to": "星穹编年史", "type": "belongs_to"}
   ],
   "learnings": [
-    {"content": "偏好用世界观生物传递温度", "category": "preference", "priority": "high"}
+    {"content": "用世界观特有的生物传递情感比直接描写更有效", "category": "写作技巧", "priority": "high"}
   ],
   "errors": [
-    {"content": "冰原晶狐与白狗设定冲突", "severity": "medium", "relatedEntity": "冰原晶狐"}
+    {"content": "星灵的设定与第三章已有角色能力重复", "severity": "medium", "relatedEntity": "星灵"}
   ]
 }
 ```
@@ -148,24 +148,24 @@
 type: 项目
 created: 2026-04-30
 updated: 2026-04-30
-tags: [OC, 创作, memory]
+tags: [创作, 世界观, memory]
 ---
-# 隙光纪行
+# 星穹编年史
 
 ## 属性
-- **规模**: 约2000章
-- **风格**: 日常向
-- **模式**: AI初稿 + 人工精修
+- **规模**: 长篇连载
+- **风格**: 奇幻冒险
+- **写作模式**: AI初稿 + 人工精修
 
 ## 关系
-- 主角:: [[月曦夜]]
-- belongs_to:: [[OC创作]]
+- 主角:: [[艾琳]]
+- 核心生物:: [[星灵]]
 
 ## 相关学习
-- [[学习/2026-04-30-偏好用生物传递温度]]
+- [[学习/2026-04-30-用世界观生物传递情感]]
 
 ## 相关错误
-- [[错误/2026-04-30-第三章风格偏移]]
+- [[错误/2026-04-30-星灵能力冲突]]
 ```
 
 兼容 Obsidian Dataview 内联字段和图谱视图。
@@ -198,13 +198,13 @@ Agent 检测到用户未设置记忆目录：
 ### 对话中
 
 ```text
-用户："我设计了一个新生物叫冰原晶狐，它能感知裂隙异常。"
+用户："我设计了一个新生物，叫星灵——生活在浮空群岛上，能感知能量波动。"
 
 Agent 判断这是一个重要实体：
 → 记录在对话内部
 → 对话结束时调用 memory-extract
-→ 写入 记忆/实体/世界观生物/冰原晶狐.md
-→ 与 记忆/实体/项目/隙光纪行.md 建立双链关系
+→ 写入 记忆/实体/世界观生物/星灵.md
+→ 与 记忆/实体/项目/星穹编年史.md 建立双链关系
 ```
 
 ### 后续会话
@@ -213,11 +213,11 @@ Agent 判断这是一个重要实体：
 Agent 自动调用 memory-context：
 → 读取 context.md
 → 扫描近期日记
-→ 发现冰原晶狐是高优先级学习
+→ 发现星灵是高优先级学习
 → 注入 system prompt
 
 用户（无需主动提及）：
-Agent 已了解冰原晶狐的存在和相关设定。
+Agent 已了解星灵的存在和相关设定。
 ```
 
 ---
